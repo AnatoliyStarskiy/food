@@ -3704,7 +3704,8 @@ function cards() {
       this.price = price;
       this.classes = classes;
       this.parent = document.querySelector(parentSelector);
-      this.transfer = 60; // this.changeToRUB();
+      this.transfer = 60;
+      this.changeToRUB();
     }
 
     changeToRUB() {
@@ -4197,25 +4198,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postData", function() { return postData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResource", function() { return getResource; });
 const postData = async (url, data) => {
-  const res = await fetch(url, {
-    method: 'POST',
+  let res = await fetch(url, {
+    method: "POST",
     headers: {
-      'Content-type': 'application/json'
+      'Content-Type': 'application/json'
     },
     body: data
   });
   return await res.json();
 };
 
-const getResource = async url => {
-  const res = await fetch(url);
+async function getResource(url) {
+  let res = await fetch(url);
 
   if (!res.ok) {
-    throw new Error(`Could not fetch ${url}, status ${res.status}`);
+    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
   }
 
   return await res.json();
-};
+}
 
 
 

@@ -13,7 +13,7 @@ function cards() {
             this.classes = classes;
             this.parent = document.querySelector(parentSelector);
             this.transfer = 60;
-            // this.changeToRUB();
+            this.changeToRUB();
         }
 
         changeToRUB() {
